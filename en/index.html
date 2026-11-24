@@ -47,9 +47,8 @@ em{font-style:italic;color:var(--rose)}
 .h1{font-size:clamp(2.6rem,1.2rem + 5vw,5.6rem)}
 .h2{font-size:clamp(2rem,1.2rem + 2.8vw,3.6rem)}
 .h3{font-size:clamp(1.35rem,1.15rem + .6vw,1.75rem)}
-.eyebrow{font:500 12px/1.4 var(--label);letter-spacing:.28em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
-.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
-.center .eyebrow::after{content:"";width:28px;height:1px;background:var(--gold)}
+.eyebrow{font:500 12px/1.4 var(--label);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);display:inline-block}
+:lang(zh-Hans) .eyebrow{font-size:13px;letter-spacing:.14em}
 .wrap{max-width:1240px;margin:0 auto;padding:0 var(--gut);position:relative}
 .sec{padding:var(--sec) 0}
 .center{text-align:center}
