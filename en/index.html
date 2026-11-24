@@ -421,7 +421,7 @@ const all=D.facial.concat(D.body);
 /* ---- hero lines */
 const h1=$('.hero h1');
 h1.innerHTML=h1.innerHTML.split(/<br\s*\/?>/i).map((l,i)=>`<span class="line"><span style="transition-delay:${.15+i*.14}s">${l}</span></span>`).join('');
-requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('ready')));
+requestAnimationFrame(()=>requestAnimationFrame(()=>document.body.classList.add('ready')));setTimeout(()=>document.body.classList.add('ready'),400);
 /* ---- statement words */
 const st=$('#stmt');
 const parts=D.zh?[...st.textContent]:st.textContent.split(/(\s+)/);
