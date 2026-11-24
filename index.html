@@ -117,12 +117,12 @@ header.top.away{transform:translateY(-100%)}
 /* finder */
 .finder{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,96px);align-items:center}
 .finder .lead{margin-top:18px}
-.chips{position:relative;height:470px;margin-top:22px}
+.chips{position:relative;height:420px;margin-top:26px}
 .chips .chipb{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);min-height:52px;padding:0 24px;font-size:16px;white-space:nowrap;box-shadow:0 10px 22px -14px rgba(42,37,34,.35);will-change:transform;touch-action:manipulation}
 .chips .chipb:nth-child(4n+1){background:var(--paper)}.chips .chipb:nth-child(4n+2){background:#EFE3CB}.chips .chipb:nth-child(4n+3){background:var(--sage)}.chips .chipb:nth-child(4n){background:var(--blush2)}
 .chips .chipb[aria-pressed=true]{background:var(--ink);color:var(--cream)}
 .js .chips:not(.live) .chipb{opacity:0}
-@media(max-width:900px){.chips{height:480px;max-width:520px}}
+@media(max-width:900px){.chips{max-width:560px}}
 @media(max-width:420px){.chips .chipb{min-height:46px;padding:0 18px;font-size:15px}}
 .chipb{min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--line);background:var(--paper);font:400 15px var(--label);color:var(--ink);cursor:pointer;transition:background .35s var(--ease),color .35s,border-color .35s}
 .chipb:hover{border-color:var(--ink)}
@@ -424,9 +424,15 @@ fill(0);
 chips.addEventListener('click',e=>{const b=e.target.closest('.chipb');if(!b||b.getAttribute('aria-pressed')==='true')return;$$('.chipb').forEach(x=>x.setAttribute('aria-pressed',x===b));rec.classList.add('out');setTimeout(()=>{fill(+b.dataset.i);rec.classList.remove('out')},RM?0:420)});
 /* ---- parallax pills: drop in with a spring, drift with the cursor */
 {
-const P=[[26,6,-5,1],[72,7,4,.7],[31,20,-2,1.3],[74,21,6,.9],[24,34,3,1.1],[70,35,-6,.8],[29,48,2,1.2],[75,49,-4,1],[25,62,5,.9],[71,63,-3,1.2],[30,77,4,.8],[73,78,-5,1.1],[26,92,-2,1],[70,93,5,.9]];
+const ROT=[-4,3,-2,4,2,-4,2,-3,4,-2,3,-4,-2,3],MUL=[1,.7,1.3,.9,1.1,.8,1.2,1,.9,1.2,.8,1.1,1,.9],JIT=[-6,4,-2,7,-5,3,6,-4,2,-7,5,-3,4,-6];
 const pills=$$('.chips .chipb'),zone=$('.finder');
-const S=pills.map((el,i)=>{const p=P[i%P.length];el.style.setProperty('--x',p[0]+'%');el.style.setProperty('--y',p[1]+'%');return{el,rot:p[2],m:p[3],y:0,vy:0,r:0,vr:0,o:1,dx:0,vdx:0,dy:0,vdy:0,tx:0,ty:0,t0:0}});
+const S=pills.map((el,i)=>({el,rot:ROT[i%14],m:MUL[i%14],y:0,vy:0,r:0,vr:0,o:1,dx:0,vdx:0,dy:0,vdy:0,tx:0,ty:0,t0:0}));
+const layout=()=>{const W=chips.clientWidth,G=22,ws=pills.map(p=>p.offsetWidth),H=pills[0].offsetHeight,RH=H+22;const rows=[];let cur=[],cw=0;
+  ws.forEach((w,i)=>{if(cur.length&&cw+G+w>W-24){rows.push(cur);cur=[];cw=0}cw+=(cur.length?G:0)+w;cur.push(i)});if(cur.length)rows.push(cur);
+  rows.forEach((r,ri)=>{const T=r.reduce((a,i)=>a+ws[i],0)+G*(r.length-1);const shift=(ri%2?1:-1)*Math.min(22,(W-T)/2);let x=Math.max(0,Math.min(W-T,(W-T)/2+shift));
+    r.forEach(i=>{pills[i].style.setProperty('--x',(x+ws[i]/2)+'px');pills[i].style.setProperty('--y',(ri*RH+RH/2+JIT[i%14])+'px');x+=ws[i]+G})});
+  chips.style.height=(rows.length*RH+10)+'px'};
+layout();addEventListener('resize',layout);document.fonts&&document.fonts.ready.then(layout);
 const paint=s=>{s.el.style.transform=`translate(-50%,-50%) translate(${s.dx.toFixed(2)}px,${(s.y+s.dy).toFixed(2)}px) rotate(${(s.rot+s.r).toFixed(2)}deg)`;s.el.style.opacity=s.o};
 S.forEach(paint);
 if(RM){chips.classList.add('live')}else{
