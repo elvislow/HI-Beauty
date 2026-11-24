@@ -230,13 +230,15 @@ form .btn{justify-self:start;margin-top:6px}
 /* footer */
 footer{background:var(--ink);color:#BFB4AB;padding:clamp(64px,8vw,110px) 0 36px}
 .fgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px;align-items:start}
-.fbrand img{width:84px;height:auto;margin-bottom:16px}
+.fbrand img{width:clamp(170px,18vw,230px);height:auto}
 .fbrand span{display:block;font:500 13px var(--label);letter-spacing:.3em;color:var(--gold2)}
 footer h4{margin:0 0 14px;font:500 var(--t-small) var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--gold2)}
 footer a{color:#F1EAE3;text-decoration:none}footer a:hover{color:var(--gold2)}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15px}
+footer li{white-space:nowrap}
+.legal span{white-space:nowrap}
 .legal{margin-top:56px;padding-top:24px;border-top:1px solid rgba(216,194,155,.2);font:400 var(--t-small) var(--label);letter-spacing:.04em;color:#8E837B}
-@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr}.fbrand{grid-column:1/-1}}
+@media(max-width:760px){.fgrid{grid-template-columns:.8fr 1.2fr}.fbrand{grid-column:1/-1}}
 /* mobile booking bar: light, appears after the hero */
 .mbar{display:none}
 @media(max-width:760px){
@@ -387,11 +389,11 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
 <footer>
   <div class="wrap">
     <div class="fgrid">
-      <div class="fbrand"><img src="img/hb-logo.png" alt="" width="84" height="84"><span>HI BEAUTY LOUNGE</span></div>
+      <div class="fbrand"><img src="img/hb-logo-full.png" alt="HI Beauty Lounge" width="900" height="523"></div>
       <div><h4>看看</h4><ul><li><a href="#gal">环境</a></li><li><a href="#menu">护理项目</a></li><li><a href="#notes">客人评价</a></li><li><a href="#faq">常见问题</a></li></ul></div>
       <div><h4>联系</h4><ul><li><a href="https://wa.me/60176866596">WhatsApp 017-686 6596</a></li><li><a href="https://www.facebook.com/hibeautylounge" target="_blank" rel="noopener">Facebook</a></li><li><a href="https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786" target="_blank" rel="noopener">Google Maps</a></li><li><a href="/en/">EN</a></li></ul></div>
     </div>
-    <div class="legal">© 2026 HI Beauty Lounge · SSM 202303184884 (TR0287816-M) · Batu Pahat 美容院 · 洗脸 · Facial · 身体护理</div>
+    <div class="legal"><span>© 2026 HI Beauty Lounge</span> · <span>SSM 202303184884 (TR0287816-M)</span> · <span>Batu Pahat 美容院 · 洗脸 · Facial · 身体护理</span></div>
   </div>
 </footer>
 
