@@ -23,7 +23,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BeautySalon","name":"HI Beauty Lounge","url":"https://hibeautylounge.vercel.app/en/","logo":"https://hibeautylounge.vercel.app/img/hb-logo.png","image":"https://hibeautylounge.vercel.app/img/hi-beauty-batu-pahat-room-window-view.webp","priceRange":"$$","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}],"keywords":"facial batu pahat, facial treatment batu pahat, facial spa batu pahat, beauty salon batu pahat","alternateName":"HI Beauty Lounge by Verthys","description":"HI Beauty Lounge is a three-storey, home-style beauty salon in Batu Pahat town centre, designed for women, by appointment. Facials for hydration, brightening and acne, plus body treatments. WhatsApp 017-686 6596 to book.","telephone":"+60176866596","address":{"@type":"PostalAddress","streetAddress":"43, Jalan Sinar Berlian, Taman Sinar Berlian","addressLocality":"Batu Pahat","postalCode":"83000","addressRegion":"Johor","addressCountry":"MY"},"areaServed":"Batu Pahat","geo":{"@type":"GeoCoordinates","latitude":1.880119,"longitude":102.9506786},"hasMap":"https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786","sameAs":["https://www.facebook.com/hibeautylounge","https://www.instagram.com/hibeautylounge_by_verthys/"]}
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to book a facial?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We work by appointment so every guest has enough time and privacy. WhatsApp 017-686 6596 to book."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "We're open every day, 9am to 7pm. Please book a time on WhatsApp first."}}, {"@type": "Question", "name": "I don't know which facial suits me. What should I do?", "acceptedAnswer": {"@type": "Answer", "text": "On your first visit we start with a free AI skin analysis, then suggest a treatment. You can also send us a photo on WhatsApp first."}}, {"@type": "Question", "name": "How much is a facial?", "acceptedAnswer": {"@type": "Answer", "text": "Prices depend on the treatment and package. Ask us on WhatsApp for the latest prices."}}, {"@type": "Question", "name": "Where are you in Batu Pahat?", "acceptedAnswer": {"@type": "Answer", "text": "43, Jalan Sinar Berlian, Taman Sinar Berlian, Batu Pahat. Look for the arch and the gold HB sign, or use the Google Maps link."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need to book a facial?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, we work by appointment. Book on WhatsApp."}}, {"@type": "Question", "name": "What are your opening hours?", "acceptedAnswer": {"@type": "Answer", "text": "Open every day, 9am to 7pm."}}, {"@type": "Question", "name": "Not sure which facial suits you?", "acceptedAnswer": {"@type": "Answer", "text": "On your first visit we start with a free AI skin analysis, then suggest a treatment."}}, {"@type": "Question", "name": "How much is a facial?", "acceptedAnswer": {"@type": "Answer", "text": "Prices depend on the treatment. Ask us on WhatsApp."}}, {"@type": "Question", "name": "Where are you in Batu Pahat?", "acceptedAnswer": {"@type": "Answer", "text": "43, Jalan Sinar Berlian, Taman Sinar Berlian, Batu Pahat."}}]}</script>
 <style>
 /*
 VOICE: quiet, unhurried, expensive; a private house, not a shop
@@ -48,6 +48,9 @@ html{overflow-x:clip;scroll-padding-top:84px}
 html:not(.lenis){scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--body);font:400 var(--t-body)/1.7 var(--text);letter-spacing:.005em;overflow-x:clip;-webkit-font-smoothing:antialiased}
 a{color:inherit}p{margin:0 0 1em}img{max-width:100%;display:block}
+p,li,summary,label,.lead,.small,figcaption,cite,blockquote{text-wrap:pretty}
+:lang(zh-Hans) body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+.lead,.hero .lead,.shead .lead{text-wrap:balance}
 h1,h2,h3{font-family:var(--display);font-weight:var(--wd);color:var(--ink);letter-spacing:var(--trk);line-height:var(--lhd);margin:0;text-wrap:balance}
 em{font-style:italic;color:var(--rose)}
 /* four sizes: display / h2 / h3 / body (+ small labels) */
@@ -110,7 +113,7 @@ header.top.away{transform:translateY(-100%)}
 .stat{padding:28px 20px 0 0}
 .stat+.stat{border-left:1px solid var(--gline);padding-left:clamp(16px,3vw,40px)}
 .stat b{display:block;font:400 clamp(44px,5.5vw,76px)/1 "Cormorant Garamond",serif;color:var(--ink)}
-.stat span{display:block;margin-top:10px}
+.stat span{display:block;margin-top:10px;white-space:nowrap}
 /* finder */
 .finder{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,96px);align-items:center}
 .finder .lead{margin-top:18px}
@@ -187,7 +190,7 @@ header.top.away{transform:translateY(-100%)}
 .qt{grid-area:1/1;margin:0;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
 .qt.on{opacity:1;transform:none;pointer-events:auto;transition:opacity .8s var(--ease) .5s,transform .8s var(--ease) .5s}
 .qt blockquote{margin:0;font:italic 400 clamp(1.45rem,1rem + 1.5vw,2.2rem)/1.45 "Cormorant Garamond",var(--display);color:var(--ink)}
-.qt blockquote.zh{font-style:normal;font-family:var(--display)}
+.qt blockquote.zh{font-style:normal;font-family:var(--display);word-break:keep-all;overflow-wrap:anywhere}
 .qt cite{display:block;margin-top:24px;font-style:normal}
 .qnav{display:flex;align-items:center;gap:16px;margin-top:34px;flex-wrap:wrap}
 .qnav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--gline);background:transparent;color:var(--ink);cursor:pointer;transition:background .3s}
@@ -271,7 +274,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
   <div class="wrap">
     <h1 class="eyebrow fade">Facial &amp; beauty salon in Batu Pahat</h1>
     <p class="h1 big"><em>Slow</em> beauty in Batu Pahat.</p>
-    <p class="lead fade" style="transition-delay:.45s">A three-storey, home-style beauty lounge, designed for women, by appointment.</p>
+    <p class="lead fade" style="transition-delay:.45s">A three-storey beauty lounge for women, by appointment.</p>
     <div class="acts fade" style="transition-delay:.6s">
       <a class="btn btn-ink mag" href="#book">Book on WhatsApp</a>
       <a class="btn btn-line mag" href="#menu">See treatments</a>
@@ -289,9 +292,9 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
     <span class="eyebrow rv">About us</span>
     <p class="stmt" id="stmt">A founder with fifteen years in beauty, and a three-storey house turned into a place where you can slow down and take care of yourself.</p>
     <div class="stats rv">
-      <div class="stat"><b data-count="15">15</b><span class="small">Years of experience</span></div>
+      <div class="stat"><b data-count="15">15</b><span class="small">Years</span></div>
       <div class="stat"><b data-count="3">3</b><span class="small">Floors</span></div>
-      <div class="stat"><b data-count="4.9" data-dec="1">4.9</b><span class="small">Google rating</span></div>
+      <div class="stat"><b data-count="4.9" data-dec="1">4.9</b><span class="small">On Google</span></div>
     </div>
   </div>
 </section>
@@ -321,10 +324,10 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
     <div class="tf rv" id="tf" role="group" aria-label="Skin needs"></div>
     <div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-k="facial">Facial</button><button class="tab" role="tab" aria-selected="false" data-k="body">Body</button></div>
     <div class="tcols">
-      <div class="tcol on" data-k="facial"><h3 class="h3">Facial<small>Facial</small></h3><div id="tl-facial"></div></div>
-      <div class="tcol" data-k="body"><h3 class="h3">Body<small>Body</small></h3><div id="tl-body"></div></div>
+      <div class="tcol on" data-k="facial"><h3 class="h3">Facials<small></small></h3><div id="tl-facial"></div></div>
+      <div class="tcol" data-k="body"><h3 class="h3">Body treatments<small></small></h3><div id="tl-body"></div></div>
     </div>
-    <p class="small note">Prices depend on the treatment and package. Ask us on WhatsApp.</p>
+    <p class="small note">Ask us on WhatsApp for prices.</p>
   </div>
 </section>
 
@@ -357,7 +360,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
       <div class="rv">
         <span class="eyebrow">Book</span>
         <h2 class="h2">Book a slow afternoon.</h2>
-        <p class="lead">Fill in these three things and the button opens WhatsApp with your message ready.</p>
+        <p class="lead">Fill in three things, then book on WhatsApp.</p>
         <form id="f">
           <label>Your name<input id="nm" autocomplete="given-name" placeholder="e.g. Mandy"></label>
           <label>Treatment<select id="tr"></select></label>
@@ -369,8 +372,8 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
         <figure class="wipe"><img src="../img/hi-beauty-batu-pahat-shopfront-no43.webp" alt="HI Beauty Lounge shopfront with the arch and gold HB sign" loading="lazy" width="1360" height="765" data-speed=".08"></figure>
         <span class="eyebrow">Finding us</span>
         <p class="addr">43, Jalan Sinar Berlian, Taman Sinar Berlian, 83000 Batu Pahat, Johor</p>
-        <p class="small" style="font-size:15px">In Taman Sinar Berlian. Look for the arch and the gold HB sign.</p>
-        <p style="margin-top:14px">Open daily, 9am – 7pm (by appointment)</p>
+        <p class="small" style="font-size:15px">Look for the arch and the gold HB sign.</p>
+        <p style="margin-top:14px">Open daily · 9am – 7pm</p>
         <p>WhatsApp · <a class="tlink" href="https://wa.me/60176866596">017-686 6596</a></p>
         <div class="acts"><a class="btn btn-line mag" href="https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786" target="_blank" rel="noopener">Directions on Google Maps</a></div>
       </div>
@@ -396,7 +399,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script>
 addEventListener('DOMContentLoaded',()=>{
-const D={"focus": [["Hydrate", "Hydrating treatment"], ["Brighten", "Brightening treatment"], ["Firm", "Anti-aging treatment"], ["Cleanse", "Deep cleansing"], ["Clear", "Purifying treatment"], ["Calm", "Calming treatment"]], "zh": false, "suits": "Good for", "ask": "Ask on WhatsApp", "askMsg": "Hi HI Beauty, I'd like to know more about: ", "unsure": "Not sure yet, I'd like to ask", "reviewSrc": "Google review", "scenes": [["A long week of overtime and your face looks dull.", "Brightening treatment", "Dull skin"], ["A whole day in air-con and your skin feels tight.", "Hydrating treatment", "Dry and tight"], ["Breakouts on your chin and forehead that won't stop.", "Purifying treatment", "Breakouts"], ["More blackheads, and your pores look bigger.", "Deep cleansing", "Blackheads"], ["New skincare, and your face turns red and itchy.", "Calming treatment", "Sensitive"], ["Back breakouts keep you out of open-back tops.", "Back treatment", "Back acne"], ["Past thirty and your skin feels less firm.", "Anti-aging treatment", "Less firm"]], "faqs": [["Do I need to book a facial?", "Yes. We work by appointment so every guest has enough time and privacy. WhatsApp 017-686 6596 to book."], ["What are your opening hours?", "We're open every day, 9am to 7pm. Please book a time on WhatsApp first."], ["I don't know which facial suits me. What should I do?", "On your first visit we start with a free AI skin analysis, then suggest a treatment. You can also send us a photo on WhatsApp first."], ["How much is a facial?", "Prices depend on the treatment and package. Ask us on WhatsApp for the latest prices."], ["Where are you in Batu Pahat?", "43, Jalan Sinar Berlian, Taman Sinar Berlian, Batu Pahat. Look for the arch and the gold HB sign, or use the Google Maps link."]], "gallery": [["Reception", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%"], ["Treatment room", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%"], ["Outdoor terrace", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["Jet bathtub", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["Bath with a view", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["Bath corner", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "../img/", "facial": [["Hydrating treatment", "深层补水护理", "Dry, tight skin; makeup that won't sit smoothly"], ["Brightening treatment", "美白透亮护理", "Dull skin and uneven tone"], ["Anti-aging treatment", "抗老紧致护理", "Fine lines, skin that feels less firm"], ["Deep cleansing", "深层清洁护理", "Blackheads and visible pores"], ["Purifying treatment", "净痘修护护理", "Breakouts that keep coming back"], ["Calming treatment", "舒缓敏感护理", "Redness, skin that reacts easily"], ["NIR treatment", "牛奶光嫩肤护理", "For smoother, softer-looking skin"], ["Lifting & spa", "Lifting & Spa 护理", "Relax while your face gets a refreshed look"], ["Cell light treatment", "细胞光护理", "Tired skin that needs some recovery"], ["Oxygen facial", "高氧补水护理", "Dehydrated, tired-looking skin"]], "body": [["Body scrub", "全身磨砂护理", "Rough skin and build-up on the body"], ["Body mask", "全身美白面膜", "Dull, uneven skin tone on the body"], ["Ovary massage", "子宫卵巢保养", "A relaxing abdominal massage, time for yourself"], ["Bust massage", "胸部护理", "Gentle, relaxing care for the bust area"], ["Back treatment", "背部净痘护理", "Back breakouts that stop you wearing open-back tops"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`Hi HI Beauty, I'm ${n||'(name)'} and I'd like to book ${t||'a treatment (not sure which yet)'}, on ${d||'a day that suits you'}.`};
+const D={"focus": [["Hydrate", "Hydrating treatment"], ["Brighten", "Brightening treatment"], ["Firm", "Anti-aging treatment"], ["Cleanse", "Deep cleansing"], ["Clear", "Purifying treatment"], ["Calm", "Calming treatment"]], "zh": false, "suits": "Good for", "ask": "Ask on WhatsApp", "askMsg": "Hi HI Beauty, I'd like to know more about: ", "unsure": "Not sure yet, I'd like to ask", "reviewSrc": "Google review", "scenes": [["A long week of overtime and your face looks dull.", "Brightening treatment", "Dull skin"], ["A whole day in air-con and your skin feels tight.", "Hydrating treatment", "Dry and tight"], ["Breakouts on your chin and forehead that won't stop.", "Purifying treatment", "Breakouts"], ["More blackheads, and your pores look bigger.", "Deep cleansing", "Blackheads"], ["New skincare, and your face turns red and itchy.", "Calming treatment", "Sensitive"], ["Back breakouts keep you out of open-back tops.", "Back treatment", "Back acne"], ["Past thirty and your skin feels less firm.", "Anti-aging treatment", "Less firm"]], "faqs": [["Do I need to book a facial?", "Yes, we work by appointment. Book on WhatsApp."], ["What are your opening hours?", "Open every day, 9am to 7pm."], ["Not sure which facial suits you?", "On your first visit we start with a free AI skin analysis, then suggest a treatment."], ["How much is a facial?", "Prices depend on the treatment. Ask us on WhatsApp."], ["Where are you in Batu Pahat?", "43, Jalan Sinar Berlian, Taman Sinar Berlian, Batu Pahat."]], "gallery": [["Reception", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%"], ["Treatment room", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%"], ["Outdoor terrace", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["Jet bathtub", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["Bath with a view", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["Bath corner", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "../img/", "facial": [["Hydrating treatment", "深层补水护理", "Dry, tight skin; makeup that won't sit smoothly"], ["Brightening treatment", "美白透亮护理", "Dull skin and uneven tone"], ["Anti-aging treatment", "抗老紧致护理", "Fine lines, skin that feels less firm"], ["Deep cleansing", "深层清洁护理", "Blackheads and visible pores"], ["Purifying treatment", "净痘修护护理", "Breakouts that keep coming back"], ["Calming treatment", "舒缓敏感护理", "Redness, skin that reacts easily"], ["NIR treatment", "牛奶光嫩肤护理", "For smoother, softer-looking skin"], ["Lifting & spa", "Lifting & Spa 护理", "Relax while your face gets a refreshed look"], ["Cell light treatment", "细胞光护理", "Tired skin that needs some recovery"], ["Oxygen facial", "高氧补水护理", "Dehydrated, tired-looking skin"]], "body": [["Body scrub", "全身磨砂护理", "Rough skin and build-up on the body"], ["Body mask", "全身美白面膜", "Dull, uneven skin tone on the body"], ["Ovary massage", "子宫卵巢保养", "A relaxing abdominal massage, time for yourself"], ["Bust massage", "胸部护理", "Gentle, relaxing care for the bust area"], ["Back treatment", "背部净痘护理", "Back breakouts that stop you wearing open-back tops"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`Hi HI Beauty, I'm ${n||'(name)'} and I'd like to book ${t||'a treatment (not sure which yet)'}, on ${d||'a day that suits you'}.`};
 const WA='https://wa.me/60176866596?text=';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -443,7 +446,7 @@ if(FINE)zone.addEventListener('pointerleave',()=>{S.forEach(s=>{s.tx=0;s.ty=0});
 }
 }
 /* ---- treatments */
-const row=(x,i)=>`<div class="tr" data-n="${x[0]}"><button class="trh" aria-expanded="false"><span class="no">${String(i+1).padStart(2,'0')}</span><span><b>${x[0]}</b><small class="small">${x[1]}</small></span><i aria-hidden="true">+</i></button><div class="trb"><div><div class="in"><p><span class="small" style="color:var(--gold)">${D.suits}</span><br>${x[2]}</p><a class="tlink" href="${WA+encodeURIComponent(D.askMsg+x[0])}" target="_blank" rel="noopener">${D.ask} →</a></div></div></div></div>`;
+const row=(x,i)=>`<div class="tr" data-n="${x[0]}"><button class="trh" aria-expanded="false"><span class="no">${String(i+1).padStart(2,'0')}</span><span><b>${x[0]}</b><small class="small">${x[1]}</small></span><i aria-hidden="true">+</i></button><div class="trb"><div><div class="in"><p><span class="small" style="color:var(--gold)">${D.suits}</span>&nbsp; ${x[2]}</p><a class="tlink" href="${WA+encodeURIComponent(D.askMsg+x[0])}" target="_blank" rel="noopener">${D.ask} →</a></div></div></div></div>`;
 $('#tl-facial').innerHTML=D.facial.map(row).join('');$('#tl-body').innerHTML=D.body.map(row).join('');
 const openRow=(r,o)=>{r.classList.toggle('open',o);r.querySelector('.trh').setAttribute('aria-expanded',o)};
 $('.tcols').addEventListener('click',e=>{const h=e.target.closest('.trh');if(h){const r=h.parentElement;openRow(r,!r.classList.contains('open'))}});

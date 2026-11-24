@@ -23,7 +23,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BeautySalon","name":"HI Beauty Lounge","url":"https://hibeautylounge.vercel.app/","logo":"https://hibeautylounge.vercel.app/img/hb-logo.png","image":"https://hibeautylounge.vercel.app/img/hi-beauty-batu-pahat-room-window-view.webp","priceRange":"$$","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"19:00"}],"keywords":"Batu Pahat 美容院, batu pahat 洗脸, batu pahat facial, facial treatment batu pahat, 峇株巴辖美容院","alternateName":"HI Beauty Lounge by Verthys","description":"Batu Pahat 美容院 HI Beauty Lounge：洗脸 facial、补水、美白、祛痘、抗老与身体护理。三层楼家庭式美容院，专为女性打造，预约制，每天 9am–7pm。Taman Sinar Berlian（公主城附近）。WhatsApp 017-686 6596。","telephone":"+60176866596","address":{"@type":"PostalAddress","streetAddress":"43, Jalan Sinar Berlian, Taman Sinar Berlian","addressLocality":"Batu Pahat","postalCode":"83000","addressRegion":"Johor","addressCountry":"MY"},"areaServed":"Batu Pahat","geo":{"@type":"GeoCoordinates","latitude":1.880119,"longitude":102.9506786},"hasMap":"https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786","sameAs":["https://www.facebook.com/hibeautylounge","https://www.instagram.com/hibeautylounge_by_verthys/"]}
 </script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "洗一次脸要预约吗？", "acceptedAnswer": {"@type": "Answer", "text": "要的，我们是预约制，这样每位客人都有足够的时间和私人空间。WhatsApp 017-686 6596 预约就可以了。"}}, {"@type": "Question", "name": "营业时间是几点？", "acceptedAnswer": {"@type": "Answer", "text": "每天营业，9am 到 7pm，请先 WhatsApp 预约时间。"}}, {"@type": "Question", "name": "第一次来，不知道适合哪一种洗脸护理怎么办？", "acceptedAnswer": {"@type": "Answer", "text": "我们会先帮你做免费的 AI 肌肤检测，看清楚皮肤状况，再建议适合的护理。你也可以先 WhatsApp 拍张照片问我们。"}}, {"@type": "Question", "name": "洗脸价格是多少？", "acceptedAnswer": {"@type": "Answer", "text": "不同护理和疗程的价格不一样，请 WhatsApp 询问最新价格。"}}, {"@type": "Question", "name": "美容院在 Batu Pahat 哪里？", "acceptedAnswer": {"@type": "Answer", "text": "在 43, Jalan Sinar Berlian, Taman Sinar Berlian，白沙浮住宅区，公主城附近。认得门口的拱门和金色 HB 标志，或者点 Google Maps 导航。"}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "洗脸要预约吗？", "acceptedAnswer": {"@type": "Answer", "text": "要的，我们是预约制，WhatsApp 预约就可以。"}}, {"@type": "Question", "name": "营业时间是几点？", "acceptedAnswer": {"@type": "Answer", "text": "每天营业，9am 到 7pm。"}}, {"@type": "Question", "name": "不知道适合哪种护理？", "acceptedAnswer": {"@type": "Answer", "text": "第一次来，我们会先做免费 AI 肌肤检测，再建议适合的护理。"}}, {"@type": "Question", "name": "洗脸价格是多少？", "acceptedAnswer": {"@type": "Answer", "text": "价格请 WhatsApp 询问。"}}, {"@type": "Question", "name": "美容院在 Batu Pahat 哪里？", "acceptedAnswer": {"@type": "Answer", "text": "43, Jalan Sinar Berlian, Taman Sinar Berlian，白沙浮住宅区，公主城附近。"}}]}</script>
 <style>
 /*
 VOICE: quiet, unhurried, expensive; a private house, not a shop
@@ -48,6 +48,9 @@ html{overflow-x:clip;scroll-padding-top:84px}
 html:not(.lenis){scroll-behavior:smooth}
 body{margin:0;background:var(--cream);color:var(--body);font:400 var(--t-body)/1.95 var(--text);letter-spacing:.03em;overflow-x:clip;-webkit-font-smoothing:antialiased}
 a{color:inherit}p{margin:0 0 1em}img{max-width:100%;display:block}
+p,li,summary,label,.lead,.small,figcaption,cite,blockquote{text-wrap:pretty}
+:lang(zh-Hans) body{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
+.lead,.hero .lead,.shead .lead{text-wrap:balance}
 h1,h2,h3{font-family:var(--display);font-weight:var(--wd);color:var(--ink);letter-spacing:var(--trk);line-height:var(--lhd);margin:0;text-wrap:balance}
 em{font-style:italic;color:var(--rose)}
 /* four sizes: display / h2 / h3 / body (+ small labels) */
@@ -110,7 +113,7 @@ header.top.away{transform:translateY(-100%)}
 .stat{padding:28px 20px 0 0}
 .stat+.stat{border-left:1px solid var(--gline);padding-left:clamp(16px,3vw,40px)}
 .stat b{display:block;font:400 clamp(44px,5.5vw,76px)/1 "Cormorant Garamond",serif;color:var(--ink)}
-.stat span{display:block;margin-top:10px}
+.stat span{display:block;margin-top:10px;white-space:nowrap}
 /* finder */
 .finder{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,6vw,96px);align-items:center}
 .finder .lead{margin-top:18px}
@@ -187,7 +190,7 @@ header.top.away{transform:translateY(-100%)}
 .qt{grid-area:1/1;margin:0;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
 .qt.on{opacity:1;transform:none;pointer-events:auto;transition:opacity .8s var(--ease) .5s,transform .8s var(--ease) .5s}
 .qt blockquote{margin:0;font:italic 400 clamp(1.45rem,1rem + 1.5vw,2.2rem)/1.45 "Cormorant Garamond",var(--display);color:var(--ink)}
-.qt blockquote.zh{font-style:normal;font-family:var(--display)}
+.qt blockquote.zh{font-style:normal;font-family:var(--display);word-break:keep-all;overflow-wrap:anywhere}
 .qt cite{display:block;margin-top:24px;font-style:normal}
 .qnav{display:flex;align-items:center;gap:16px;margin-top:34px;flex-wrap:wrap}
 .qnav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--gline);background:transparent;color:var(--ink);cursor:pointer;transition:background .3s}
@@ -271,7 +274,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
   <div class="wrap">
     <h1 class="eyebrow fade">Batu Pahat 美容院 · 洗脸护理</h1>
     <p class="h1 big">在 Batu Pahat，慢慢变美。</p>
-    <p class="lead fade" style="transition-delay:.45s">三层楼的家庭式美容院，洗脸、身体护理，专为女性打造，预约制。</p>
+    <p class="lead fade" style="transition-delay:.45s">三层楼美容院 · 专为女性 · 预约制</p>
     <div class="acts fade" style="transition-delay:.6s">
       <a class="btn btn-ink mag" href="#book">WhatsApp 预约</a>
       <a class="btn btn-line mag" href="#menu">看护理项目</a>
@@ -317,14 +320,14 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
 
 <section class="sec cream" id="menu">
   <div class="wrap">
-    <div class="shead rv"><div><span class="eyebrow">护理项目</span><h2 class="h2">Batu Pahat 洗脸 &amp; 身体护理</h2></div><p class="lead">点上面的关键字，或点护理名称，看看适合哪一种皮肤状况。</p></div>
+    <div class="shead rv"><div><span class="eyebrow">护理项目</span><h2 class="h2">Batu Pahat 洗脸 &amp; 身体护理</h2></div><p class="lead">点关键字或护理名称，看看适合你的护理。</p></div>
     <div class="tf rv" id="tf" role="group" aria-label="皮肤需求"></div>
     <div class="tabs" role="tablist"><button class="tab" role="tab" aria-selected="true" data-k="facial">洗脸 Facial</button><button class="tab" role="tab" aria-selected="false" data-k="body">身体护理 Body</button></div>
     <div class="tcols">
       <div class="tcol on" data-k="facial"><h3 class="h3">洗脸护理<small>Facial</small></h3><div id="tl-facial"></div></div>
       <div class="tcol" data-k="body"><h3 class="h3">身体护理<small>Body</small></h3><div id="tl-body"></div></div>
     </div>
-    <p class="small note">价格因护理内容和疗程而不同，请 WhatsApp 询问。</p>
+    <p class="small note">价格请 WhatsApp 询问。</p>
   </div>
 </section>
 
@@ -357,7 +360,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
       <div class="rv">
         <span class="eyebrow">预约</span>
         <h2 class="h2">约一个慢慢的下午。</h2>
-        <p class="lead">填好下面三项，按按钮就会打开 WhatsApp，信息已经帮你写好。</p>
+        <p class="lead">填好三项，直接 WhatsApp 预约。</p>
         <form id="f">
           <label>你的名字<input id="nm" autocomplete="given-name" placeholder="例如：Mandy"></label>
           <label>想做的护理<select id="tr"></select></label>
@@ -369,8 +372,8 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
         <figure class="wipe"><img src="img/hi-beauty-batu-pahat-shopfront-no43.webp" alt="HI Beauty Lounge 店面，门口的拱门和金色 HB 标志" loading="lazy" width="1360" height="765" data-speed=".08"></figure>
         <span class="eyebrow">怎么来</span>
         <p class="addr">43, Jalan Sinar Berlian, Taman Sinar Berlian, 83000 Batu Pahat, Johor</p>
-        <p class="small" style="font-size:15px">在白沙浮住宅区，公主城附近。认得门口的拱门和金色 HB 标志。</p>
-        <p style="margin-top:14px">每天营业 9am – 7pm（预约制）</p>
+        <p class="small" style="font-size:15px">白沙浮住宅区 · 公主城附近</p>
+        <p style="margin-top:14px">每天营业 · 9am – 7pm</p>
         <p>WhatsApp · <a class="tlink" href="https://wa.me/60176866596">017-686 6596</a></p>
         <div class="acts"><a class="btn btn-line mag" href="https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786" target="_blank" rel="noopener">Google Maps 导航</a></div>
       </div>
@@ -396,7 +399,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:15p
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script>
 addEventListener('DOMContentLoaded',()=>{
-const D={"focus": [["补水", "深层补水护理"], ["美白", "美白透亮护理"], ["抗老", "抗老紧致护理"], ["清洁", "深层清洁护理"], ["净痘", "净痘修护护理"], ["舒缓", "舒缓敏感护理"]], "zh": true, "suits": "适合", "ask": "WhatsApp 问这个护理", "askMsg": "你好 HI Beauty，我想了解：", "unsure": "还不确定，想先问问", "reviewSrc": "Google 评价", "scenes": [["加班一整个星期，照镜子发现脸色好暗。", "美白透亮护理", "脸色暗沉"], ["空调房坐一天，皮肤干到紧绷。", "深层补水护理", "皮肤干紧"], ["下巴和额头一直冒痘，不敢挤。", "净痘修护护理", "一直冒痘"], ["鼻子黑头多，毛孔越来越明显。", "深层清洁护理", "黑头毛孔"], ["换个保养品，脸就红红痒痒。", "舒缓敏感护理", "容易敏感"], ["背上的痘痘，让你不敢穿露背。", "背部净痘护理", "背上长痘"], ["过了三十，觉得脸开始松了。", "抗老紧致护理", "开始松了"]], "faqs": [["洗一次脸要预约吗？", "要的，我们是预约制，这样每位客人都有足够的时间和私人空间。WhatsApp 017-686 6596 预约就可以了。"], ["营业时间是几点？", "每天营业，9am 到 7pm，请先 WhatsApp 预约时间。"], ["第一次来，不知道适合哪一种洗脸护理怎么办？", "我们会先帮你做免费的 AI 肌肤检测，看清楚皮肤状况，再建议适合的护理。你也可以先 WhatsApp 拍张照片问我们。"], ["洗脸价格是多少？", "不同护理和疗程的价格不一样，请 WhatsApp 询问最新价格。"], ["美容院在 Batu Pahat 哪里？", "在 43, Jalan Sinar Berlian, Taman Sinar Berlian，白沙浮住宅区，公主城附近。认得门口的拱门和金色 HB 标志，或者点 Google Maps 导航。"]], "gallery": [["接待区", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%"], ["护理房", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%"], ["户外小庭院", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["按摩浴缸", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["景观浴缸房", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["浴缸区", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "img/", "facial": [["深层补水护理", "Hydrating treatment", "皮肤干燥、紧绷，上妆容易卡粉"], ["美白透亮护理", "Brightening treatment", "脸色暗沉、肤色不均"], ["抗老紧致护理", "Anti-aging treatment", "开始有细纹，觉得脸没以前紧实"], ["深层清洁护理", "Deep cleansing", "黑头多、毛孔明显"], ["净痘修护护理", "Purifying treatment", "痘痘反复冒出来"], ["舒缓敏感护理", "Calming treatment", "容易泛红、换保养品就敏感"], ["牛奶光嫩肤护理", "NIR treatment", "想让皮肤看起来更细嫩、有光泽"], ["Lifting & Spa 护理", "Lifting & spa", "想放松，同时让脸看起来更有精神"], ["细胞光护理", "Cell light treatment", "皮肤疲倦、需要好好修护"], ["高氧补水护理", "Oxygen facial", "缺水、看起来没精神的皮肤"]], "body": [["全身磨砂护理", "Body scrub", "身体皮肤粗糙、角质厚"], ["全身美白面膜", "Body mask", "身体肤色暗沉、不均匀"], ["子宫卵巢保养", "Ovary massage", "想放松腹部、好好照顾自己"], ["胸部护理", "Bust massage", "想放松、多一点照顾胸部肌肤"], ["背部净痘护理", "Back treatment", "背部长痘，不敢穿露背"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`你好 HI Beauty，我是${n||'（名字）'}，想预约${t||'护理（还不确定做哪一种）'}，时间：${d||'可以再商量'}。`};
+const D={"focus": [["补水", "深层补水护理"], ["美白", "美白透亮护理"], ["抗老", "抗老紧致护理"], ["清洁", "深层清洁护理"], ["净痘", "净痘修护护理"], ["舒缓", "舒缓敏感护理"]], "zh": true, "suits": "适合", "ask": "WhatsApp 问这个护理", "askMsg": "你好 HI Beauty，我想了解：", "unsure": "还不确定，想先问问", "reviewSrc": "Google 评价", "scenes": [["加班一整个星期，照镜子发现脸色好暗。", "美白透亮护理", "脸色暗沉"], ["空调房坐一天，皮肤干到紧绷。", "深层补水护理", "皮肤干紧"], ["下巴和额头一直冒痘，不敢挤。", "净痘修护护理", "一直冒痘"], ["鼻子黑头多，毛孔越来越明显。", "深层清洁护理", "黑头毛孔"], ["换个保养品，脸就红红痒痒。", "舒缓敏感护理", "容易敏感"], ["背上的痘痘，让你不敢穿露背。", "背部净痘护理", "背上长痘"], ["过了三十，觉得脸开始松了。", "抗老紧致护理", "开始松了"]], "faqs": [["洗脸要预约吗？", "要的，我们是预约制，WhatsApp 预约就可以。"], ["营业时间是几点？", "每天营业，9am 到 7pm。"], ["不知道适合哪种护理？", "第一次来，我们会先做免费 AI 肌肤检测，再建议适合的护理。"], ["洗脸价格是多少？", "价格请 WhatsApp 询问。"], ["美容院在 Batu Pahat 哪里？", "43, Jalan Sinar Berlian, Taman Sinar Berlian，白沙浮住宅区，公主城附近。"]], "gallery": [["接待区", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%"], ["护理房", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%"], ["户外小庭院", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["按摩浴缸", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["景观浴缸房", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["浴缸区", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "img/", "facial": [["深层补水护理", "Hydrating treatment", "皮肤干燥、紧绷，上妆容易卡粉"], ["美白透亮护理", "Brightening treatment", "脸色暗沉、肤色不均"], ["抗老紧致护理", "Anti-aging treatment", "开始有细纹，觉得脸没以前紧实"], ["深层清洁护理", "Deep cleansing", "黑头多、毛孔明显"], ["净痘修护护理", "Purifying treatment", "痘痘反复冒出来"], ["舒缓敏感护理", "Calming treatment", "容易泛红、换保养品就敏感"], ["牛奶光嫩肤护理", "NIR treatment", "想要皮肤细嫩有光泽"], ["Lifting & Spa 护理", "Lifting & spa", "想放松，同时让脸看起来更有精神"], ["细胞光护理", "Cell light treatment", "皮肤疲倦、需要好好修护"], ["高氧补水护理", "Oxygen facial", "缺水、看起来没精神的皮肤"]], "body": [["全身磨砂护理", "Body scrub", "身体皮肤粗糙、角质厚"], ["全身美白面膜", "Body mask", "身体肤色暗沉、不均匀"], ["子宫卵巢保养", "Ovary massage", "想放松腹部、好好照顾自己"], ["胸部护理", "Bust massage", "想放松、多一点照顾胸部肌肤"], ["背部净痘护理", "Back treatment", "背部长痘，不敢穿露背"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`你好 HI Beauty，我是${n||'（名字）'}，想预约${t||'护理（还不确定做哪一种）'}，时间：${d||'可以再商量'}。`};
 const WA='https://wa.me/60176866596?text=';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -443,7 +446,7 @@ if(FINE)zone.addEventListener('pointerleave',()=>{S.forEach(s=>{s.tx=0;s.ty=0});
 }
 }
 /* ---- treatments */
-const row=(x,i)=>`<div class="tr" data-n="${x[0]}"><button class="trh" aria-expanded="false"><span class="no">${String(i+1).padStart(2,'0')}</span><span><b>${x[0]}</b><small class="small">${x[1]}</small></span><i aria-hidden="true">+</i></button><div class="trb"><div><div class="in"><p><span class="small" style="color:var(--gold)">${D.suits}</span><br>${x[2]}</p><a class="tlink" href="${WA+encodeURIComponent(D.askMsg+x[0])}" target="_blank" rel="noopener">${D.ask} →</a></div></div></div></div>`;
+const row=(x,i)=>`<div class="tr" data-n="${x[0]}"><button class="trh" aria-expanded="false"><span class="no">${String(i+1).padStart(2,'0')}</span><span><b>${x[0]}</b><small class="small">${x[1]}</small></span><i aria-hidden="true">+</i></button><div class="trb"><div><div class="in"><p><span class="small" style="color:var(--gold)">${D.suits}</span>&nbsp; ${x[2]}</p><a class="tlink" href="${WA+encodeURIComponent(D.askMsg+x[0])}" target="_blank" rel="noopener">${D.ask} →</a></div></div></div></div>`;
 $('#tl-facial').innerHTML=D.facial.map(row).join('');$('#tl-body').innerHTML=D.body.map(row).join('');
 const openRow=(r,o)=>{r.classList.toggle('open',o);r.querySelector('.trh').setAttribute('aria-expanded',o)};
 $('.tcols').addEventListener('click',e=>{const h=e.target.closest('.trh');if(h){const r=h.parentElement;openRow(r,!r.classList.contains('open'))}});
