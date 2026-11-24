@@ -31,6 +31,7 @@ LAYOUT: centred hero, expanding arch, statement, sticky walk-through, finder, tr
   --cream:#FBF8F3;--paper:#FFFDF9;--blush:#F6E4DF;--blush2:#EDCFC8;--rose:#A9594E;
   --gold:#B08A4E;--gold2:#D8C29B;--ink:#2A2522;--body:#4A423D;--muted:#857A72;--sage:#E4EAE2;
   --line:rgba(42,37,34,.12);--gline:rgba(176,138,78,.45);
+  --grade:sepia(.14) saturate(.88) hue-rotate(-6deg) brightness(1.02);
   --display:"Cormorant Garamond","Noto Serif SC","Songti SC",serif;--text:"Noto Serif SC","Songti SC",serif;--label:"Jost",system-ui,sans-serif;
   --wd:500;--lhd:1.38;--trk:.04em;
   --gut:clamp(1.25rem,.6rem + 3vw,3rem);--sec:clamp(5.5rem,3.5rem + 7vw,10rem);
@@ -90,7 +91,7 @@ header.top.away{transform:translateY(-100%)}
 .hero .wrap{position:relative;z-index:1}
 .xp .stick{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .arch{--p:0;position:relative;width:calc(var(--w0) + (100vw - var(--w0)) * var(--p));height:calc(var(--h0) + (100svh - var(--h0)) * var(--p));border-radius:calc((1 - var(--p)) * 600px) calc((1 - var(--p)) * 600px) calc((1 - var(--p)) * 18px) calc((1 - var(--p)) * 18px);overflow:hidden;--w0:min(380px,64vw);--h0:min(70svh,560px)}
-.arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(calc(1.18 - .18 * var(--p)))}
+.arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--grade);transform:scale(calc(1.18 - .18 * var(--p)))}
 .arch .veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,37,34,0) 40%,rgba(42,37,34,.55));opacity:var(--p)}
 .arch .cap{position:absolute;left:0;right:0;bottom:clamp(28px,6vh,60px);text-align:center;color:var(--cream);opacity:calc(var(--p) * 2 - 1);transform:translateY(calc((1 - var(--p)) * 30px))}
 .arch .cap b{display:block;font:var(--wd) clamp(26px,3.4vw,46px)/1.3 var(--display);letter-spacing:var(--trk)}
@@ -114,7 +115,7 @@ header.top.away{transform:translateY(-100%)}
 .ws h3{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.6rem);margin-bottom:16px}
 .ws p{max-width:24em;margin:0}
 .wpic{position:sticky;top:13vh;height:74vh;border-radius:999px 999px 14px 14px;overflow:hidden;background:var(--blush)}
-.wpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity 1.1s var(--ease),transform 2.4s var(--ease)}
+.wpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--grade);opacity:0;transform:scale(1.08);transition:opacity 1.1s var(--ease),transform 2.4s var(--ease)}
 .wpic img.on{opacity:1;transform:scale(1)}
 .wpic .tag{position:absolute;left:50%;bottom:22px;translate:-50% 0;background:rgba(251,248,243,.88);padding:8px 18px;border-radius:999px;font:500 11px var(--label);letter-spacing:.22em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 .wimg{display:none}
@@ -124,7 +125,7 @@ header.top.away{transform:translateY(-100%)}
   .wsteps{padding:4vh 0 0;display:grid;gap:clamp(56px,10vw,80px)}
   .ws{min-height:0;opacity:1;text-align:center;align-items:center}
   .wimg{display:block;width:min(100%,360px);aspect-ratio:3/3.8;border-radius:999px 999px 12px 12px;overflow:hidden;margin:0 auto 26px}
-  .wimg img{width:100%;height:100%;object-fit:cover}
+  .wimg img{width:100%;height:100%;object-fit:cover;filter:var(--grade)}
 }
 /* finder */
 .blush{background:var(--blush)}
@@ -133,7 +134,7 @@ header.top.away{transform:translateY(-100%)}
 .chipb{min-height:46px;padding:0 20px;border-radius:999px;border:1px solid var(--gline);background:transparent;font:400 15px var(--text);color:var(--ink);cursor:pointer;transition:background .35s var(--ease),color .35s,border-color .35s}
 .chipb:hover{border-color:var(--ink)}
 .chipb[aria-pressed=true]{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-.rec{position:relative;background:var(--paper);border-radius:260px 260px 16px 16px;padding:clamp(70px,9vw,110px) clamp(28px,4vw,56px) clamp(36px,4vw,52px);text-align:center;min-height:460px;display:flex;flex-direction:column;justify-content:center}
+.rec{position:relative;background:var(--paper);border-radius:16px;padding:clamp(40px,5vw,64px) clamp(28px,4vw,56px);box-shadow:0 30px 60px -36px rgba(42,37,34,.3);text-align:center;min-height:460px;display:flex;flex-direction:column;justify-content:center}
 .rec .q{font:italic 400 clamp(20px,1.8vw,24px)/1.5 "Cormorant Garamond",var(--display);color:var(--muted);margin-bottom:22px}
 .rec h3{font-size:clamp(1.8rem,1.3rem + 1.6vw,2.6rem)}
 .rec .en{margin-top:6px;font:500 12px var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
@@ -168,8 +169,8 @@ header.top.away{transform:translateY(-100%)}
 .agp{position:relative;flex:1 1 0;min-width:0;overflow:hidden;border-radius:16px;cursor:pointer;background:var(--blush2);transform:rotateY(var(--rot,0deg));transform-style:preserve-3d;transition:flex-grow .9s var(--ease),transform .9s var(--ease);-webkit-tap-highlight-color:transparent;outline:none}
 .agp.on{flex-grow:var(--grow,4)}
 .agp:focus-visible{box-shadow:0 0 0 2px var(--gold)}
-.agp img{position:absolute;top:0;left:50%;height:100%;width:var(--ms,420px);max-width:none;object-fit:cover;transform:translateX(calc(-50% + var(--shift,0px)));filter:saturate(.55) brightness(.94);transition:transform .9s var(--ease),filter .9s var(--ease)}
-.agp.on img{filter:none}
+.agp img{position:absolute;top:0;left:50%;height:100%;width:var(--ms,420px);max-width:none;object-fit:cover;transform:translateX(calc(-50% + var(--shift,0px)));filter:var(--grade) saturate(.55) brightness(.94);transition:transform .9s var(--ease),filter .9s var(--ease)}
+.agp.on img{filter:var(--grade)}
 .agp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(42,37,34,.6)),rgba(42,37,34,var(--dim,.22));transition:background .9s var(--ease);pointer-events:none}
 .agp.on::after{--dim:0}
 .agl{position:absolute;left:24px;right:24px;bottom:22px;z-index:2;display:flex;align-items:center;gap:14px;pointer-events:none}
@@ -207,8 +208,9 @@ details[open] .ans{grid-template-rows:1fr}
 .ans>div{overflow:hidden}.ans p{margin:0 0 26px;color:var(--muted);max-width:40em}
 /* booking */
 .book{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(32px,6vw,100px);align-items:center}
-.bpic{border-radius:999px 999px 14px 14px;overflow:hidden;aspect-ratio:4/5.2}
-.bpic img{width:100%;height:120%;object-fit:cover;object-position:30% 50%}
+.bpic{border-radius:16px;overflow:hidden;aspect-ratio:4/5;position:relative}
+.bpic img{width:100%;height:115%;object-fit:cover;object-position:72% 88%;filter:var(--grade)}
+.bpic figcaption{position:absolute;left:18px;bottom:16px;background:rgba(251,248,243,.9);padding:8px 16px;border-radius:999px;font:500 11px var(--label);letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
 form{display:grid;gap:26px;margin:34px 0 26px}
 label{display:block;font:500 11px var(--label);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 input,select{width:100%;height:50px;border:0;border-bottom:1px solid var(--gline);background:transparent;padding:0 2px;font:400 17px var(--text);color:var(--ink);border-radius:0;margin-top:4px;-webkit-appearance:none;appearance:none}
@@ -366,7 +368,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 <section id="book">
   <div class="wrap">
     <div class="book">
-      <div class="bpic wipe"><img src="img/hi-beauty-batu-pahat-bath-sky-view.webp" alt="HI Beauty Lounge 景观浴缸房" loading="lazy" width="765" height="1020" data-speed=".12"></div>
+      <figure class="bpic wipe" style="margin:0"><img src="img/hi-beauty-batu-pahat-shopfront-no43.webp" alt="HI Beauty Lounge 店面，门口的拱门和金色 HB 标志" loading="lazy" width="1360" height="765" data-speed=".1"><figcaption>No. 43 · Taman Sinar Berlian</figcaption></figure>
       <div class="rv">
         <div class="eyebrow">预约</div>
         <h2 class="h2" style="margin-top:18px">给自己约一个<br>慢慢的下午。</h2>
@@ -410,7 +412,7 @@ footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script>
 addEventListener('DOMContentLoaded',()=>{
-const D={"zh": true, "suits": "适合", "ask": "WhatsApp 问这个护理", "askMsg": "你好 HI Beauty，我想了解：", "unsure": "还不确定，想先问问", "reviewSrc": "Google 评价", "walk": [["进门，先坐下来", "接待区的沙发上，先坐一坐，聊聊你最近的皮肤。", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%", "接待区"], ["先做皮肤检测", "了解你的皮肤状况，再按结果定制护理。", "hi-beauty-batu-pahat-product-shelf.webp", "50% 40%", "Verthys 产品墙"], ["关上门，慢慢做", "独立护理房，有床、浴缸和小沙发。这段时间，只属于你。", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%", "护理房"], ["喝杯茶再走", "护理完坐一下，喝杯茶、吃点水果，不用急着离开。", "hi-beauty-batu-pahat-tea-and-fruit.webp", "50% 50%", "茶点时间"]], "scenes": [["加班一整个星期，照镜子发现脸色好暗。", "美白透亮护理", "脸色暗沉"], ["空调房坐一天，皮肤干到紧绷。", "深层补水护理", "皮肤干紧"], ["下巴和额头一直冒痘，不敢挤。", "净痘修护护理", "一直冒痘"], ["鼻子黑头多，毛孔越来越明显。", "深层清洁护理", "黑头毛孔"], ["换个保养品，脸就红红痒痒。", "舒缓敏感护理", "容易敏感"], ["背上的痘痘，让你不敢穿露背。", "背部净痘护理", "背上长痘"], ["过了三十，觉得脸开始松了。", "抗老紧致护理", "开始松了"]], "faqs": [["一定要预约吗？", "是的，我们是预约制，这样每位客人都有足够的时间和私人空间。WhatsApp 017-686 6596 预约就可以了。"], ["我不知道自己适合哪一种护理，怎么办？", "WhatsApp 告诉我们你最近的皮肤困扰，或者直接拍张照片，我们会建议适合你的护理。第一次来也会先做皮肤检测。"], ["价格是多少？", "不同护理和疗程的价格不一样，请 WhatsApp 询问最新价格。"], ["美容院在哪里？", "在 Batu Pahat 市中心，43, Jalan Sinar Berlian, Taman Sinar Berlian。认得门口的拱门，或者点 Google Maps 导航。"]], "gallery": [["户外小庭院", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["按摩浴缸", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["景观浴缸房", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["浴缸区", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"], ["门口的拱门", "hi-beauty-batu-pahat-shopfront-no43.webp", "62% 50%"]], "peek": ["hi-beauty-batu-pahat-treatment-room.webp", "hi-beauty-batu-pahat-room-window-view.webp", "hi-beauty-batu-pahat-bath-room.webp", "hi-beauty-batu-pahat-reception-lounge.webp"], "img": "img/", "facial": [["深层补水护理", "Hydrating treatment", "皮肤干燥、紧绷，上妆容易卡粉"], ["美白透亮护理", "Brightening treatment", "脸色暗沉、肤色不均"], ["抗老紧致护理", "Anti-aging treatment", "开始有细纹，觉得脸没以前紧实"], ["深层清洁护理", "Deep cleansing", "黑头多、毛孔明显"], ["净痘修护护理", "Purifying treatment", "痘痘反复冒出来"], ["舒缓敏感护理", "Calming treatment", "容易泛红、换保养品就敏感"], ["牛奶光嫩肤护理", "NIR treatment", "想让皮肤看起来更细嫩、有光泽"], ["Lifting & Spa 护理", "Lifting & spa", "想放松，同时让脸看起来更有精神"], ["细胞光护理", "Cell light treatment", "皮肤疲倦、需要好好修护"], ["高氧补水护理", "Oxygen facial", "缺水、看起来没精神的皮肤"]], "body": [["全身磨砂护理", "Body scrub", "身体皮肤粗糙、角质厚"], ["全身美白面膜", "Body mask", "身体肤色暗沉、不均匀"], ["子宫卵巢保养", "Ovary massage", "想放松腹部、好好照顾自己"], ["胸部护理", "Bust massage", "想放松、多一点照顾胸部肌肤"], ["背部净痘护理", "Back treatment", "背部长痘，不敢穿露背"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`你好 HI Beauty，我是${n||'（名字）'}，想预约${t||'护理（还不确定做哪一种）'}，时间：${d||'可以再商量'}。`};
+const D={"zh": true, "suits": "适合", "ask": "WhatsApp 问这个护理", "askMsg": "你好 HI Beauty，我想了解：", "unsure": "还不确定，想先问问", "reviewSrc": "Google 评价", "walk": [["进门，先坐下来", "接待区的沙发上，先坐一坐，聊聊你最近的皮肤。", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%", "接待区"], ["先做皮肤检测", "了解你的皮肤状况，再按结果定制护理。", "hi-beauty-batu-pahat-product-shelf.webp", "50% 40%", "Verthys 产品墙"], ["关上门，慢慢做", "独立护理房，有床、浴缸和小沙发。这段时间，只属于你。", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%", "护理房"], ["喝杯茶再走", "护理完坐一下，喝杯茶、吃点水果，不用急着离开。", "hi-beauty-batu-pahat-tea-and-fruit.webp", "50% 50%", "茶点时间"]], "scenes": [["加班一整个星期，照镜子发现脸色好暗。", "美白透亮护理", "脸色暗沉"], ["空调房坐一天，皮肤干到紧绷。", "深层补水护理", "皮肤干紧"], ["下巴和额头一直冒痘，不敢挤。", "净痘修护护理", "一直冒痘"], ["鼻子黑头多，毛孔越来越明显。", "深层清洁护理", "黑头毛孔"], ["换个保养品，脸就红红痒痒。", "舒缓敏感护理", "容易敏感"], ["背上的痘痘，让你不敢穿露背。", "背部净痘护理", "背上长痘"], ["过了三十，觉得脸开始松了。", "抗老紧致护理", "开始松了"]], "faqs": [["一定要预约吗？", "是的，我们是预约制，这样每位客人都有足够的时间和私人空间。WhatsApp 017-686 6596 预约就可以了。"], ["我不知道自己适合哪一种护理，怎么办？", "WhatsApp 告诉我们你最近的皮肤困扰，或者直接拍张照片，我们会建议适合你的护理。第一次来也会先做皮肤检测。"], ["价格是多少？", "不同护理和疗程的价格不一样，请 WhatsApp 询问最新价格。"], ["美容院在哪里？", "在 Batu Pahat 市中心，43, Jalan Sinar Berlian, Taman Sinar Berlian。认得门口的拱门，或者点 Google Maps 导航。"]], "gallery": [["户外小庭院", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["按摩浴缸", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["景观浴缸房", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["浴缸区", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "img/", "facial": [["深层补水护理", "Hydrating treatment", "皮肤干燥、紧绷，上妆容易卡粉"], ["美白透亮护理", "Brightening treatment", "脸色暗沉、肤色不均"], ["抗老紧致护理", "Anti-aging treatment", "开始有细纹，觉得脸没以前紧实"], ["深层清洁护理", "Deep cleansing", "黑头多、毛孔明显"], ["净痘修护护理", "Purifying treatment", "痘痘反复冒出来"], ["舒缓敏感护理", "Calming treatment", "容易泛红、换保养品就敏感"], ["牛奶光嫩肤护理", "NIR treatment", "想让皮肤看起来更细嫩、有光泽"], ["Lifting & Spa 护理", "Lifting & spa", "想放松，同时让脸看起来更有精神"], ["细胞光护理", "Cell light treatment", "皮肤疲倦、需要好好修护"], ["高氧补水护理", "Oxygen facial", "缺水、看起来没精神的皮肤"]], "body": [["全身磨砂护理", "Body scrub", "身体皮肤粗糙、角质厚"], ["全身美白面膜", "Body mask", "身体肤色暗沉、不均匀"], ["子宫卵巢保养", "Ovary massage", "想放松腹部、好好照顾自己"], ["胸部护理", "Bust massage", "想放松、多一点照顾胸部肌肤"], ["背部净痘护理", "Back treatment", "背部长痘，不敢穿露背"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`你好 HI Beauty，我是${n||'（名字）'}，想预约${t||'护理（还不确定做哪一种）'}，时间：${d||'可以再商量'}。`};
 const WA='https://wa.me/60176866596?text=';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
