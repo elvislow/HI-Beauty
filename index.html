@@ -91,14 +91,6 @@ body{--page:var(--cream);background:var(--page)}
 .sheen{position:relative}
 .sheen::before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,250,240,.32) 48%,rgba(255,250,240,.08) 56%,transparent 66%);transform:translateX(-130%);transition:transform 0s}
 .sheen:hover::before{transform:translateX(130%);transition:transform 1.3s var(--ease)}
-/* gold cursor */
-.cur,.cur-dot{position:fixed;left:0;top:0;pointer-events:none;z-index:90;border-radius:50%;opacity:0;transition:opacity .3s,width .35s var(--ease),height .35s var(--ease),margin .35s var(--ease),background .35s,border-color .35s}
-.cur{width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid var(--gold)}
-.cur-dot{width:6px;height:6px;margin:-3px 0 0 -3px;background:var(--gold)}
-.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:rgba(176,138,78,.1);border-color:rgba(176,138,78,.7)}
-.cur.big+.cur-dot{opacity:0!important}
-html.has-cur,html.has-cur a,html.has-cur button,html.has-cur .agp,html.has-cur summary{cursor:none}
-html.has-cur input,html.has-cur select{cursor:auto}
 @media(pointer:coarse){.cur,.cur-dot{display:none}}
 /* section head: heading left, lead right, one left edge */
 .shead{margin-bottom:clamp(40px,5vw,60px)}
@@ -473,7 +465,6 @@ footer li{white-space:nowrap}
 </footer>
 
 <a class="mbar" id="mbar" href="#book">WhatsApp 预约</a>
-<div class="cur" id="cur" aria-hidden="true"></div><div class="cur-dot" id="curDot" aria-hidden="true"></div>
 
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script>
@@ -589,7 +580,7 @@ const h2s=$$('.h2');
 if(!RM){h2s.forEach(h=>{const t=h.textContent;const parts=t.match(/[A-Za-z0-9&'’.,!?-]+|\s+|[^\s]/g)||[];h.setAttribute('aria-label',t);h.innerHTML=parts.map((c,i)=>/^\s+$/.test(c)?c:`<span class="ch" aria-hidden="true" style="transition-delay:${(i*.045).toFixed(3)}s">${c.replace(/&/g,'&amp;')}</span>`).join('')});
   const hio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('lit');hio.unobserve(e.target)}}),{threshold:.4});h2s.forEach(h=>hio.observe(h))}
 /* ---- gold cursor */
-if(FINE&&!RM){const cur=$('#cur'),dot=$('#curDot');let mx=-99,my=-99,cx=-99,cy=-99,seen=false;document.documentElement.classList.add('has-cur');
+if(false){const cur=$('#cur'),dot=$('#curDot');let mx=-99,my=-99,cx=-99,cy=-99,seen=false;document.documentElement.classList.add('has-cur');
   addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;if(!seen){seen=true;cx=mx;cy=my;cur.style.opacity=dot.style.opacity=1}const t=e.target.closest('a,button,.agp,.chipb,summary,.tfw');cur.classList.toggle('big',!!t)});
   document.addEventListener('pointerleave',()=>{cur.style.opacity=dot.style.opacity=0;seen=false});
   (function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.transform=`translate(${cx}px,${cy}px)`;dot.style.transform=`translate(${mx}px,${my}px)`;requestAnimationFrame(loop)})()}
