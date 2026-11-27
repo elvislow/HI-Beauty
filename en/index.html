@@ -52,8 +52,8 @@ LAYOUT: centred hero only; every other section shares one left edge, lead under 
   --grade:sepia(.14) saturate(.88) hue-rotate(-6deg) brightness(1.02);
   --display:"Noto Serif SC","Songti SC",Georgia,serif;--text:"Noto Serif SC","Songti SC",Georgia,serif;--label:"Noto Serif SC","Songti SC",Georgia,serif;
   --wd:500;--lhd:1.25;--trk:0;
-  --t-body:17px;--t-small:13px;
-  --gut:clamp(1.25rem,.6rem + 3vw,3rem);--sec:clamp(5rem,3.5rem + 6vw,9rem);
+  --t-body:17px;--t-small:14px;
+  --gut:clamp(1.25rem,.6rem + 3vw,3rem);--sec:clamp(3.75rem,2.5rem + 4vw,6.25rem);
   --ease:cubic-bezier(.22,.61,.36,1)
 }
 *{box-sizing:border-box;min-width:0}
@@ -72,7 +72,7 @@ em{font-style:normal;color:var(--rose)}
 .h3{font-size:clamp(1.3rem,1.15rem + .5vw,1.65rem)}
 .lead{font-size:var(--t-body);max-width:28em;color:var(--body);margin:0}
 .small{font:500 var(--t-small)/1.5 var(--label);letter-spacing:.06em;color:var(--muted)}
-.eyebrow{display:block;font:500 var(--t-small)/1.4 var(--label);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.eyebrow{display:block;font:600 var(--t-small)/1.4 var(--label);letter-spacing:.2em;text-transform:uppercase;color:#8A6731;margin-bottom:16px}
 .wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut);position:relative}
 .sec{padding:var(--sec) 0}
 /* page colour is blended on scroll; sections only carry a data hint */
@@ -139,6 +139,7 @@ header.top.away{transform:translateY(-100%)}
 .xp{height:150vh;position:relative;margin-top:-8vh}
 .hero .wrap{position:relative;z-index:1}
 .xp .stick{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+@media(min-width:861px){.hero{padding-top:clamp(116px,13vh,150px)}.xp{margin-top:-16vh}.hero .lead{margin:20px auto 28px}.openrow{margin-top:18px}}
 .arch{--p:0;--w0:min(360px,62vw);--h0:min(64svh,540px);position:relative;width:calc(var(--w0) + (100vw - var(--w0)) * var(--p));height:calc(var(--h0) + (100svh - var(--h0)) * var(--p));border-radius:calc((1 - var(--p)) * 600px) calc((1 - var(--p)) * 600px) calc((1 - var(--p)) * 16px) calc((1 - var(--p)) * 16px);overflow:hidden}
 .arch img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:var(--grade);transform:scale(calc(1.15 - .15 * var(--p)))}
 /* statement */
@@ -228,11 +229,11 @@ header.top.away{transform:translateY(-100%)}
 .agp.on .agl i,.agp.on .agl span{opacity:1;transform:none}
 @media(max-width:640px){.ag{flex-direction:column;height:600px;perspective:none}.agp{transform:none}.agp img{left:0;width:100%;transform:none}}
 /* quotes */
-.quotes{display:grid;max-width:880px}
-.qt{grid-area:1/1;margin:0;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
-.qt.on{opacity:1;transform:none;pointer-events:auto;transition:opacity .8s var(--ease) .5s,transform .8s var(--ease) .5s}
-.qt blockquote{margin:0;font:400 clamp(1.25rem,1rem + 1vw,1.8rem)/1.6 var(--display);color:var(--ink)}
-.qt blockquote.zh{font-style:normal;font-family:var(--display);word-break:keep-all;overflow-wrap:anywhere}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.5vw,36px)}
+@media(max-width:860px){.quotes{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 8px;scrollbar-width:none}.quotes::-webkit-scrollbar{display:none}.qt{scroll-snap-align:start}}
+.qt{margin:0;padding:28px 0 0;border-top:1px solid var(--gline);display:flex;flex-direction:column}
+.qt blockquote{margin:0;font:400 clamp(1.05rem,.95rem + .4vw,1.25rem)/1.75 var(--display);color:var(--ink);flex:1}
+.qt blockquote.zh{font-style:normal;font-family:var(--display);word-break:normal;line-break:strict}
 .qt cite{display:block;margin-top:24px;font-style:normal}
 .qnav{display:flex;align-items:center;gap:16px;margin-top:34px;flex-wrap:wrap}
 .qnav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--gline);background:transparent;color:var(--ink);cursor:pointer;transition:background .3s}
@@ -240,7 +241,7 @@ header.top.away{transform:translateY(-100%)}
 .dots{display:flex;gap:8px;margin-right:auto}.dots i{width:7px;height:7px;border-radius:50%;background:var(--gold2);transition:background .3s,width .4s var(--ease)}.dots i.on{background:var(--gold);width:22px;border-radius:4px}
 /* faq */
 .fsplit{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px);align-items:start}
-.fsplit .side{position:sticky;top:120px}
+.fsplit .side{position:sticky;top:120px;align-self:start}
 .fsplit .side .lead{margin:18px 0 28px}
 details{border-bottom:1px solid var(--line)}
 details:first-child{border-top:1px solid var(--line)}
@@ -405,14 +406,12 @@ footer li{white-space:nowrap}
   </div>
 </section>
 
-<div class="vmq" aria-hidden="true"><div class="vrow" id="vr1"></div><div class="vrow o" id="vr2"></div></div>
 
 <section data-bg="cream" class="sec cream" id="notes">
   <div class="wrap">
-    <div class="shead rv"><div><span class="eyebrow">Google 4.9 · 13 reviews</span><h2 class="h2">Notes from our guests.</h2></div><p class="lead">Real reviews from Google, word for word.</p></div>
+    <div class="shead rv"><div><span class="eyebrow">Google 4.9 · 14 reviews</span><h2 class="h2">Notes from our guests.</h2></div><p class="lead">Real reviews from Google, word for word.</p></div>
     <div class="quotes rv" id="quotes"></div>
-    <div class="qnav"><div class="dots" id="dots"></div><button id="qprev" aria-label="Previous">←</button><button id="qnext" aria-label="Next">→</button></div>
-    <p style="margin-top:28px"><a class="tlink" href="https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786" target="_blank" rel="noopener">Read all 13 reviews on Google Maps</a></p>
+    <p style="margin-top:28px"><a class="tlink" href="https://www.google.com/maps/place/Hi+Beauty+Lounge/@1.880119,102.9506786,17z/data=!4m6!3m5!1s0x31d057233201c4f7:0x84e6a9e68983317a!8m2!3d1.880119!4d102.9506786" target="_blank" rel="noopener">Read all 14 reviews on Google Maps</a></p>
   </div>
 </section>
 
@@ -469,7 +468,7 @@ footer li{white-space:nowrap}
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script>
 addEventListener('DOMContentLoaded',()=>{
-const D={"focus": [["Hydrate", "Hydrating treatment"], ["Brighten", "Brightening treatment"], ["Firm", "Anti-aging treatment"], ["Cleanse", "Deep cleansing"], ["Clear", "Purifying treatment"], ["Calm", "Calming treatment"]], "hours": [9, 19], "openTxt": ["Open now<span class=\"more\"> · until 7pm</span>", "Closed<span class=\"more\"> · opens 9am</span>", "Closed<span class=\"more\"> · opens 9am tomorrow</span>"], "vm": [["Hydrate", "·", "Brighten", "·", "Firm", "·", "Cleanse", "·", "Clear", "·", "Calm", "·"], ["Facial", "·", "Body", "·", "Spa", "·", "Relax", "·", "Slow down", "·"]], "zh": false, "suits": "Good for", "ask": "Ask on WhatsApp", "askMsg": "Hi HI Beauty, I'd like to know more about: ", "unsure": "Not sure yet, I'd like to ask", "reviewSrc": "Google review", "scenes": [["A long week of overtime and your face looks dull.", "Brightening treatment", "Dull skin"], ["A whole day in air-con and your skin feels tight.", "Hydrating treatment", "Dry and tight"], ["Breakouts on your chin and forehead that won't stop.", "Purifying treatment", "Breakouts"], ["More blackheads, and your pores look bigger.", "Deep cleansing", "Blackheads"], ["New skincare, and your face turns red and itchy.", "Calming treatment", "Sensitive"], ["Back breakouts keep you out of open-back tops.", "Back treatment", "Back acne"], ["Past thirty and your skin feels less firm.", "Anti-aging treatment", "Less firm"], ["Up late, and your whole face looks tired.", "Oxygen facial", "Tired skin"], ["Your skin feels rough, not smooth.", "NIR treatment", "Not smooth"], ["Stressed lately, you just want to relax.", "Lifting & spa", "Relax"], ["Since the weather changed, your skin hasn't recovered.", "Cell light treatment", "Recovery"], ["Your arms and back feel rough.", "Body scrub", "Rough body"], ["Uneven skin tone on your arms and legs.", "Body mask", "Dull body"], ["Sitting all day, your tummy always feels tight.", "Ovary massage", "Tight tummy"]], "faqs": [["Do I need to book a facial?", "Yes, we work by appointment. Book on WhatsApp."], ["What are your opening hours?", "Open every day, 9am to 7pm."], ["Not sure which facial suits you?", "On your first visit we start with a free AI skin analysis, then suggest a treatment."], ["How much is a facial?", "Prices depend on the treatment. Ask us on WhatsApp."], ["Do you offer massage?", "Yes. Our Lifting & spa, ovary massage and bust massage treatments all include relaxing massage. The lounge is for women only."], ["How far is it from Parit Raja / UTHM?", "Not far, about 25 minutes by car (around 20 km)."], ["Where are you in Batu Pahat?", "43, Jalan Sinar Berlian, Taman Sinar Berlian, Batu Pahat."]], "gallery": [["Reception", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%"], ["Treatment room", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%"], ["Outdoor terrace", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["Jet bathtub", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["Bath with a view", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["Bath corner", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "../img/", "facial": [["Hydrating treatment", "深层补水护理", "Dry, tight skin; makeup that won't sit smoothly"], ["Brightening treatment", "美白透亮护理", "Dull skin and uneven tone"], ["Anti-aging treatment", "抗老紧致护理", "Fine lines, skin that feels less firm"], ["Deep cleansing", "深层清洁护理", "Blackheads and visible pores"], ["Purifying treatment", "净痘修护护理", "Breakouts that keep coming back"], ["Calming treatment", "舒缓敏感护理", "Redness, skin that reacts easily"], ["NIR treatment", "牛奶光嫩肤护理", "For smoother, softer-looking skin"], ["Lifting & spa", "Lifting & Spa 护理", "Relax while your face gets a refreshed look"], ["Cell light treatment", "细胞光护理", "Tired skin that needs some recovery"], ["Oxygen facial", "高氧补水护理", "Dehydrated, tired-looking skin"]], "body": [["Body scrub", "全身磨砂护理", "Rough skin and build-up on the body"], ["Body mask", "全身美白面膜", "Dull, uneven skin tone on the body"], ["Ovary massage", "子宫卵巢保养", "A relaxing abdominal massage, time for yourself"], ["Bust massage", "胸部护理", "Gentle, relaxing care for the bust area"], ["Back treatment", "背部净痘护理", "Back breakouts that stop you wearing open-back tops"]], "reviews": [["The decoration is very exquisite and the environment is very comfortable… They will first conduct skin test, and then customise the skin care plan for you.", "Poh Michelle"], ["环境太舒服了，手艺也是一级棒，全部都很有经验 👍🏻", "jingwen ker"], ["Time flies – it’s been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`Hi HI Beauty, I'm ${n||'(name)'} and I'd like to book ${t||'a treatment (not sure which yet)'}, on ${d||'a day that suits you'}.`};
+const D={"focus": [["Hydrate", "Hydrating treatment"], ["Brighten", "Brightening treatment"], ["Firm", "Anti-aging treatment"], ["Cleanse", "Deep cleansing"], ["Clear", "Purifying treatment"], ["Calm", "Calming treatment"]], "hours": [9, 19], "openTxt": ["Open now<span class=\"more\"> · until 7pm</span>", "Closed<span class=\"more\"> · opens 9am</span>", "Closed<span class=\"more\"> · opens 9am tomorrow</span>"], "vm": [["Hydrate", "·", "Brighten", "·", "Firm", "·", "Cleanse", "·", "Clear", "·", "Calm", "·"], ["Facial", "·", "Body", "·", "Spa", "·", "Relax", "·", "Slow down", "·"]], "zh": false, "suits": "Good for", "ask": "Ask on WhatsApp", "askMsg": "Hi HI Beauty, I'd like to know more about: ", "unsure": "Not sure yet, I'd like to ask", "reviewSrc": "Google review", "scenes": [["A long week of overtime and your face looks dull.", "Brightening treatment", "Dull skin"], ["A whole day in air-con and your skin feels tight.", "Hydrating treatment", "Dry and tight"], ["Breakouts on your chin and forehead that won't stop.", "Purifying treatment", "Breakouts"], ["More blackheads, and your pores look bigger.", "Deep cleansing", "Blackheads"], ["New skincare, and your face turns red and itchy.", "Calming treatment", "Sensitive"], ["Back breakouts keep you out of open-back tops.", "Back treatment", "Back acne"], ["Past thirty and your skin feels less firm.", "Anti-aging treatment", "Less firm"], ["Up late, and your whole face looks tired.", "Oxygen facial", "Tired skin"], ["Your skin feels rough, not smooth.", "NIR treatment", "Not smooth"], ["Stressed lately, you just want to relax.", "Lifting & spa", "Relax"], ["Since the weather changed, your skin hasn't recovered.", "Cell light treatment", "Recovery"], ["Your arms and back feel rough.", "Body scrub", "Rough body"], ["Uneven skin tone on your arms and legs.", "Body mask", "Dull body"], ["Sitting all day, your tummy always feels tight.", "Ovary massage", "Tight tummy"]], "faqs": [["Do I need to book a facial?", "Yes, we work by appointment. Book on WhatsApp."], ["What are your opening hours?", "Open every day, 9am to 7pm."], ["Not sure which facial suits you?", "On your first visit we start with a free AI skin analysis, then suggest a treatment."], ["How much is a facial?", "Prices depend on the treatment. Ask us on WhatsApp."], ["Do you offer massage?", "Yes. Our Lifting & spa, ovary massage and bust massage treatments all include relaxing massage. The lounge is for women only."], ["How far is it from Parit Raja / UTHM?", "Not far, about 25 minutes by car (around 20 km)."], ["Where are you in Batu Pahat?", "43, Jalan Sinar Berlian, Taman Sinar Berlian, Batu Pahat."]], "gallery": [["Reception", "hi-beauty-batu-pahat-reception-lounge.webp", "50% 50%"], ["Treatment room", "hi-beauty-batu-pahat-treatment-room.webp", "40% 50%"], ["Outdoor terrace", "hi-beauty-batu-pahat-terrace.webp", "50% 60%"], ["Jet bathtub", "hi-beauty-batu-pahat-bathtub.webp", "45% 50%"], ["Bath with a view", "hi-beauty-batu-pahat-bath-sky-view.webp", "50% 50%"], ["Bath corner", "hi-beauty-batu-pahat-bath-room.webp", "50% 50%"]], "img": "../img/", "facial": [["Hydrating treatment", "深层补水护理", "Dry, tight skin; makeup that won't sit smoothly"], ["Brightening treatment", "美白透亮护理", "Dull skin and uneven tone"], ["Anti-aging treatment", "抗老紧致护理", "Fine lines, skin that feels less firm"], ["Deep cleansing", "深层清洁护理", "Blackheads and visible pores"], ["Purifying treatment", "净痘修护护理", "Breakouts that keep coming back"], ["Calming treatment", "舒缓敏感护理", "Redness, skin that reacts easily"], ["NIR treatment", "牛奶光嫩肤护理", "For smoother, softer-looking skin"], ["Lifting & spa", "Lifting & Spa 护理", "Relax while your face gets a refreshed look"], ["Cell light treatment", "细胞光护理", "Tired skin that needs some recovery"], ["Oxygen facial", "高氧补水护理", "Dehydrated, tired-looking skin"]], "body": [["Body scrub", "全身磨砂护理", "Rough skin and build-up on the body"], ["Body mask", "全身美白面膜", "Dull, uneven skin tone on the body"], ["Ovary massage", "子宫卵巢保养", "A relaxing abdominal massage, time for yourself"], ["Bust massage", "胸部护理", "Gentle, relaxing care for the bust area"], ["Back treatment", "背部净痘护理", "Back breakouts that stop you wearing open-back tops"]], "reviews": [["They will first conduct skin test, and then customise the skin care plan for you according to the test results. They will explain in detail the purpose of each step… I sincerely recommend everyone to try it here!!!", "Poh Michelle"], ["Highly recommended! Comfortable, friendly, spacious &amp; relaxing ambience… but most importantly is the detail &amp; excellent service provided by the experienced &amp; knowledgeable beauticians", "NORLINA SAYANG"], ["Time flies – it's been exactly one year since I started my facial care here!… Every visit feels like a little escape from our busy lives.", "Rachel Jia Hsin"]],"msg":(n,t,d)=>`Hi HI Beauty${n?', this is '+n:''}. I'd like to book ${t||'a treatment (not sure which yet)'}${d?', '+d:''}.`};
 const WA='https://wa.me/60176866596?text=';
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -549,13 +548,8 @@ const sizeGal=()=>{const w=ag.getBoundingClientRect().width,use=Math.max(w-12*(N
 agp.forEach((p,i)=>{if(FINE)p.addEventListener('mouseenter',()=>agSet(i));p.addEventListener('click',()=>agSet(i));p.addEventListener('focus',()=>agSet(i));p.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();agp[(i+1)%N].focus()}else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();agp[(i-1+N)%N].focus()}})});
 sizeGal();
 /* ---- quotes */
-const qs=$('#quotes'),dots=$('#dots');
-qs.innerHTML=D.reviews.map((r,i)=>`<figure class="qt${i?'':' on'}"><blockquote class="${/[一-鿿]/.test(r[0])?'zh':''}">“${r[0]}”</blockquote><cite class="small">${r[1]} · ${D.reviewSrc}</cite></figure>`).join('');
-dots.innerHTML=D.reviews.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
-let qi=0,qt;const qset=i=>{qi=(i+D.reviews.length)%D.reviews.length;$$('.qt').forEach((q,j)=>q.classList.toggle('on',j===qi));$$('#dots i').forEach((d,j)=>d.classList.toggle('on',j===qi))};
-const auto=()=>{clearInterval(qt);if(!RM)qt=setInterval(()=>qset(qi+1),7000)};
-$('#qprev').onclick=()=>{qset(qi-1);auto()};$('#qnext').onclick=()=>{qset(qi+1);auto()};auto();
-/* ---- faq + booking */
+const qs=$('#quotes');
+qs.innerHTML=D.reviews.map(r=>`<figure class="qt"><blockquote class="${/[一-鿿]/.test(r[0])?'zh':''}">“${r[0]}”</blockquote><cite class="small">${r[1]} · ${D.reviewSrc}</cite></figure>`).join('');
 $('#faqs').innerHTML=D.faqs.map(q=>`<details><summary>${q[0]}<i aria-hidden="true">+</i></summary><div class="ans"><div><p>${q[1]}</p></div></div></details>`).join('');
 const tr=$('#tr');
 tr.innerHTML=`<option value="">${D.unsure}</option>`+all.map(x=>`<option>${x[0]}</option>`).join('');
@@ -590,15 +584,6 @@ const blend=()=>{const mid=innerHeight*.55;let a=COL.cream,b=COL.cream,t=0;
   for(let i=0;i<bgSecs.length;i++){const r=bgSecs[i].getBoundingClientRect();if(r.top<=mid&&r.bottom>mid){a=COL[bgSecs[i].dataset.bg];const nx=bgSecs[i+1];b=nx?COL[nx.dataset.bg]:a;const k=(mid-r.top)/r.height;t=Math.max(0,(k-.62)/.38);break}
     if(r.top>mid){a=b=COL[bgSecs[i].dataset.bg];if(i===0){a=COL.cream;const k=1-(r.top-mid)/innerHeight;t=Math.max(0,Math.min(1,k));}break}}
   const e=t*t*(3-2*t),c=a.map((v,j)=>Math.round(v+(b[j]-v)*e));document.body.style.setProperty('--page',`rgb(${c})`)};
-/* ---- velocity marquee */
-const vr1=$('#vr1'),vr2=$('#vr2');
-vr1.innerHTML=Array(4).fill(D.vm[0].map(w=>`<span>${w}</span>`).join('')).join('');
-vr2.innerHTML=Array(4).fill(D.vm[1].map(w=>`<span>${w}</span>`).join('')).join('');
-let vo1=0,vo2=0,vOn=false,vPrev=scrollY;
-new IntersectionObserver(es=>es.forEach(e=>{vOn=e.isIntersecting;if(vOn&&!RM)requestAnimationFrame(vloop)})).observe($('.vmq'));
-const vloop=()=>{if(!vOn)return;const v=lenis?lenis.velocity:(scrollY-vPrev);vPrev=scrollY;const sp=.45+Math.min(Math.abs(v)*.35,14);
-  const w1=vr1.scrollWidth/4,w2=vr2.scrollWidth/4;vo1=(vo1+sp)%w1;vo2=(vo2+sp*.8)%w2;
-  vr1.style.transform=`translateX(${-vo1}px)`;vr2.style.transform=`translateX(${vo2-w2}px)`;requestAnimationFrame(vloop)};
 const prog=$('#prog');
 /* ---- scroll engine */
 const arch=$('#arch'),xp=$('#xp'),hd=$('#hd'),mbar=$('#mbar'),par=$$('[data-speed]');
